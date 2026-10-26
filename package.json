@@ -1,0 +1,22 @@
+{
+  "name": "scrapelab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "browsers": "playwright install chromium",
+    "test": "node --test tests/node/*.test.mjs",
+    "test:e2e": "playwright test",
+    "dev": "node api.js && concurrently -k -n web,queue \"php artisan serve --host=127.0.0.1\" \"php artisan queue:work --tries=1 --timeout=210\""
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.0",
+    "concurrently": "^9.2.0"
+  },
+  "dependencies": {
+    "playwright": "^1.58.0",
+    "ipaddr.js": "^2.2.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
